@@ -30,8 +30,6 @@ bot_message "$MY_IP"
 
 find $IP_WEBCAM_DIR -type f -iname "*.$FORMAT" -not -path "$VIDEO_DIR/*" -exec mv {} $VIDEO_DIR \;
 
-. ~/ipcamgram/video-unload.sh
-
 ###################################
 
 (inotifywait -e close_write --format '%w%f' -m -q -r $IP_WEBCAM_DIR |\
