@@ -2,7 +2,7 @@
 
 CHAT_ID=""
 CHAT_ID_BOT=""
-TOKEN=""
+TOKEN_BOT=""
 default_message="default message"
 
 ###################################
@@ -37,8 +37,8 @@ MY_IP=$(curl "ifconfig.me")
 bot_message() {
 if [ -z "$@" ]
 then
-    curl -s --data-urlencode "text=$default_message" "https://api.telegram.org/bot$TOKEN/sendMessage?chat_id=$CHAT_ID_BOT" &> /dev/null
+    curl -s --data-urlencode "text=$default_message" "https://api.telegram.org/bot$TOKEN_BOT/sendMessage?chat_id=$CHAT_ID_BOT" &> /dev/null
 else
-    curl -s --data-urlencode "text=$@" "https://api.telegram.org/bot$TOKEN/sendMessage?chat_id=$CHAT_ID_BOT" &> /dev/null
+    curl -s --data-urlencode "text=$@" "https://api.telegram.org/bot$TOKEN_BOT/sendMessage?chat_id=$CHAT_ID_BOT" &> /dev/null
 fi
 }
