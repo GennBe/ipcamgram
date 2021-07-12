@@ -18,6 +18,8 @@ bot_message "Ip Webcam start"
 sleep 2
 curl -u $LOGIN:$PASSWORD "$URL/settings/video_chunk_len?set=$VIDEO_TIME" && bot_message "Длительность:$VIDEO_TIMEмин"
 sleep 2
+curl -u $LOGIN:$PASSWORD "$URL/settings/video_size?set=$VIDEO_SIZE" && bot_message "Расширение:$VIDEO_SIZE"
+sleep 2
 curl -u $LOGIN:$PASSWORD "$URL/settings/quality?set=$QUALITY" && bot_message "Качество:$QUALITY%"
 sleep 2
 curl -u $LOGIN:$PASSWORD "$URL/focus" && bot_message "Фокус:ок"
