@@ -1,2 +1,2 @@
 # IpCamGram
-ip webcam video upload to telegram and notifications in telegram bot
+Ip webcam video upload to Telegram and notifications in Telegram bot
