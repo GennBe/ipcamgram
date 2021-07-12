@@ -1,0 +1,44 @@
+###### Telegram settings ##########
+
+CHAT_ID=""
+CHAT_ID_BOT=""
+TOKEN=""
+default_message="default message"
+
+###################################
+
+
+###### IP Webcam settings #########
+
+PORT="8080"
+FORMAT="mkv"
+QUALITY="70"
+VIDEO_TIME="30"
+TAG_NAME="video"
+CAPTION="#videocamera"
+MODE="circular"
+
+LOGIN="admin"
+PASSWORD="hackme"
+
+URL="http://localhost:$PORT"
+
+VIDEO_DIR=~/storage/shared/ipwebcam_videos/video_unload
+IP_WEBCAM_DIR=~/storage/shared/ipwebcam_videos
+
+NET_TEST=$(curl 149.154.167.51 &>/dev/null; echo $?)
+MY_IP=$(curl "ifconfig.me")
+
+! [ -d $VIDEO_DIR ] && mkdir -p $VIDEO_DIR 
+! [ -d $IP_WEBCAM_DIR ] && mkdir -p $IP_WEBCAM_DIR 
+
+###################################
+
+bot_message() {
+if [ -z "$@" ]
+then
+    curl -s --data-urlencode "text=$default_message" "https://api.telegram.org/bot$TOKEN/sendMessage?chat_id=$CHAT_ID_BOT" &> /dev/null
+else
+    curl -s --data-urlencode "text=$@" "https://api.telegram.org/bot$TOKEN/sendMessage?chat_id=$CHAT_ID_BOT" &> /dev/null
+fi
+}
