@@ -29,7 +29,7 @@ IP_WEBCAM_DIR=~/storage/shared/ipwebcam_videos
 NET_TEST=$(curl 149.154.167.51 &>/dev/null; echo $?)
 MY_IP=$(curl "ifconfig.me")
 
-! [ -d $VIDEO_DIR ] && mkdir -p $VIDEO_DIR 
+! [ -d $DOWN_DIR ] && mkdir -p $DOWN_DIR 
 ! [ -d $IP_WEBCAM_DIR ] && mkdir -p $IP_WEBCAM_DIR 
 
 ###################################
