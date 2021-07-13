@@ -51,7 +51,7 @@ do
             NO_NET="1"
         fi
     var=0
-    elif [ $(ls $noipdir | wc -l) -ge 1 ] && [ $NET_TEST -eq 0 ] && [ $NO_NET -eq 1 ]
+    elif [ $(ls $DOWN_DIR | wc -l) -ge 1 ] && [ $NET_TEST -eq 0 ] && [ $NO_NET -eq 1 ]
     then
         echo "Выгружаю из $DOWN_DIR"
         bot_message "Выгружаю $DOWN_DIR"
