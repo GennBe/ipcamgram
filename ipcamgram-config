@@ -21,9 +21,9 @@ MODE="circular"
 LOGIN="admin"
 PASSWORD="hackme"
 
+NO_NET="1"
 URL="http://localhost:$PORT"
-
-VIDEO_DIR=~/storage/shared/ipwebcam_videos/video_unload
+DOWN_DIR=~/storage/shared/ipwebcam_videos/down_dir
 IP_WEBCAM_DIR=~/storage/shared/ipwebcam_videos
 
 NET_TEST=$(curl 149.154.167.51 &>/dev/null; echo $?)
