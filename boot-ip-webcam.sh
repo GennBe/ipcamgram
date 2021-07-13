@@ -7,7 +7,6 @@
 termux-wake-lock
 termux-wifi-enable true
 sleep 40
-crond
 
 ###################################
 
