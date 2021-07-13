@@ -1,5 +1,5 @@
 # IpCamGram for Termux
-Ip webcam video auto upload to Telegram and notifications in Telegram bot
+Ip webcam video auto upload to Telegram and notifications in Telegram bot. Cloud for video files.
 
 ## Installing
 - Install app [IP Webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) [Termux](https://f-droid.org/packages/com.termux/) [Termux:API](https://f-droid.org/packages/com.termux.api/) [Termux:Boot](https://f-droid.org/packages/com.termux.boot/)
