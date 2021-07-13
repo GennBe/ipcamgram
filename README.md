@@ -3,6 +3,8 @@ Ip webcam video upload to Telegram and notifications in Telegram bot
 
 ## Installing
 - Install app [Termux](https://f-droid.org/packages/com.termux/) [Termux:API](https://f-droid.org/packages/com.termux.api/) [Termux:Boot](https://f-droid.org/packages/com.termux.boot/)
+- Go to Android settings and turn off battery optimizations for Termux and Termux:Boot applications.
+- Start the Termux:Boot app once by clicking on its launcher icon. This allows the app to be run at boot.
 ``` bash
 pkg upgrade -y && pkg i git -y && cd && git clone https://github.com/GennBe/ipcamgram.git && cd ipcamgram && chmod +x *.sh
 ```
