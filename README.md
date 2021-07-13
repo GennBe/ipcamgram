@@ -15,11 +15,6 @@ pkg upgrade -y && pkg i git -y && cd && git clone https://github.com/GennBe/ipca
 - Run the script `~/ipcamgram/install.sh`
 - Follow the instructions on your terminal to login.
 - Watch Pyrogram send a message to yourself.
-- Add `video-unload.sh` to crontab.
-- Enter the command:
-`crontab -e`
-- And add `*/10 * * * * ~/ipcamgram/video-unload.sh &> /dev/null`
-
 
 ## Requirements
 
