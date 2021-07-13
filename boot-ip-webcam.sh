@@ -40,20 +40,6 @@ do
     ((var++))
     if [ $var -eq 2 ]
     then
-        echo "Перемещаю $REPLY"
-        mv -f $REPLY $VIDEO_DIR/
-        var=0
-    fi
-done
-)) &
-
-(inotifywait -e close_write --format '%w%f' -m -q -r $IP_WEBCAM_DIR |\
-(
-while read
-do
-    ((var++))
-    if [ $var -eq 2 ]
-    then
         if [ $NET_TEST -eq 0 ]
         then
             bot_message "Выгружаю $REPLY"
