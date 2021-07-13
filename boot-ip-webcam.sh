@@ -63,7 +63,7 @@ done
 ########### Start #################
 
 sleep 2
-curl -u $LOGIN:$PASSWORD "$URL/startvideo?force=1&mode=$MODE&tag=$TAG_NAME" 
+curl -u $LOGIN:$PASSWORD "$URL/startvideo?force=1&mode=$MODE&tag=$VIDEO_NAME" 
 sleep 2
 STATUS=$(curl -u $LOGIN:$PASSWORD "$URL/videostatus" | jq --raw-output ".fname") && bot_message "$STATUS запись"
 
