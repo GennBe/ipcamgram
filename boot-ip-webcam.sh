@@ -43,7 +43,7 @@ do
         then
             bot_message "Выгружаю $REPLY"
             echo "Выгружаю из $REPLY"
-            (~/ipcamgram/tgsend.sh "$CHAT_ID" "$REPLY" "$CAPTION" && rm -f $REPLY) &
+            (~/ipcamgram/tgsend.sh $CHAT_ID $REPLY $CAPTION && rm -f $REPLY) &
         else
             echo "Нет доступа к Telegram"
             mv -f $REPLY $DOWN_DIR/
@@ -54,7 +54,7 @@ do
     then
         echo "Выгружаю из $DOWN_DIR"
         bot_message "Выгружаю $DOWN_DIR"
-        (~/ipcamgram/tgsend.sh "$CHAT_ID" "$DOWN_DIR/*" "$CAPTION" && rm -rf $DOWN_DIR/*) &
+        (~/ipcamgram/tgsend.sh $CHAT_ID $DOWN_DIR/"*" $CAPTION && rm -rf $DOWN_DIR/*) &
         NO_NET="0"
     fi
 done
