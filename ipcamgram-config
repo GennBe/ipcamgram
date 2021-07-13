@@ -11,7 +11,6 @@ default_message="default message"
 ###### IP Webcam settings #########
 
 PORT="8080"
-FORMAT="mkv"
 QUALITY="70"
 VIDEO_TIME="30"
 VIDEO_SIZE="720x480"
