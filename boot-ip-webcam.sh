@@ -29,7 +29,7 @@ curl -u $LOGIN:$PASSWORD "$URL/stopvideo?force=1" &> /dev/null
 sleep 2
 bot_message "$MY_IP"
 
-find $IP_WEBCAM_DIR -type f -iname "*.$FORMAT" -not -path "$VIDEO_DIR/*" -exec mv {} $VIDEO_DIR \;
+find $IP_WEBCAM_DIR -type f -iname "*" -not -path "$DOWN_DIR/*" -exec mv {} $DOWN_DIR \;
 
 ###################################
 
@@ -43,6 +43,34 @@ do
         echo "Перемещаю $REPLY"
         mv -f $REPLY $VIDEO_DIR/
         var=0
+    fi
+done
+)) &
+
+(inotifywait -e close_write --format '%w%f' -m -q -r $IP_WEBCAM_DIR |\
+(
+while read
+do
+    ((var++))
+    if [ $var -eq 2 ]
+    then
+        if [ $NET_TEST -eq 0 ]
+        then
+            bot_message "Выгружаю $REPLY"
+            echo "Выгружаю из $REPLY"
+            (~/ipcamgram/tgsend.sh "$CHAT_ID" "$REPLY" "$CAPTION" && rm -f $REPLY) &
+        else
+            echo "Нет доступа к Telegram"
+            mv -f $REPLY $DOWN_DIR/
+            NO_NET="1"
+        fi
+    var=0
+    elif [ $(ls $noipdir | wc -l) -ge 1 ] && [ $NET_TEST -eq 0 ] && [ $NO_NET -eq 1 ]
+    then
+        echo "Выгружаю из $DOWN_DIR"
+        bot_message "Выгружаю $DOWN_DIR"
+        (~/ipcamgram/tgsend.sh "$CHAT_ID" "$DOWN_DIR/*" "$CAPTION" && rm -rf $DOWN_DIR/*) &
+        NO_NET="0"
     fi
 done
 )) &
