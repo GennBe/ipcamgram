@@ -3,6 +3,8 @@ termux-wake-lock
 
 echo "y" | termux-setup-storage
 
+sleep 5
+
 pkg i termux-api python inotify-tools jq -y && pip install -U pyrogram tgcrypto && pkg clean && pkg autoclean
 
 ! [ -d ~/.termux/boot ] && mkdir -p ~/.termux/boot
