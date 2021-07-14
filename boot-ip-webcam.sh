@@ -7,7 +7,6 @@
 termux-wake-lock
 termux-wifi-enable true
 sleep 40
-
 ###################################
 
 ########### Start #################
@@ -39,32 +38,32 @@ do
     ((var++))
     if [ $var -eq 2 ]
     then
-        if [ $NET_TEST -eq 0 ]
+        if [ $NO_NET -eq 0 ] && ping -q -w1 -c1 149.154.167.51 &>/dev/null
         then
             bot_message "Выгружаю $REPLY"
             echo "Выгружаю из $REPLY"
-            (~/ipcamgram/tgsend.sh $CHAT_ID $REPLY $CAPTION && rm -f $REPLY) &
+            (~/ipcamgram/tgsend.sh $CHAT_ID $REPLY $CAPTION) &
         else
             echo "Нет доступа к Telegram"
             mv -f $REPLY $DOWN_DIR/
-            NO_NET="1"
+            NO_NET=1
         fi
     var=0
-    elif [ $(ls $DOWN_DIR | wc -l) -ge 1 ] && [ $NET_TEST -eq 0 ] && [ $NO_NET -eq 1 ]
+    elif [ $(ls $DOWN_DIR | wc -l) -ge 1 ] && [ $NO_NET -eq 1 ] && ping -q -w1 -c1 149.154.167.51 &>/dev/null
     then
         echo "Выгружаю из $DOWN_DIR"
         bot_message "Выгружаю $DOWN_DIR"
-        (~/ipcamgram/tgsend.sh $CHAT_ID $DOWN_DIR/"*" $CAPTION && rm -rf $DOWN_DIR/*) &
-        NO_NET="0"
+        (~/ipcamgram/tgsend.sh $CHAT_ID $DOWN_DIR/"*" $CAPTION) &
+        NO_NET=0
     fi
 done
 )) &
 
 ########### Start #################
 
-sleep 2
+sleep 5
 curl -u $LOGIN:$PASSWORD "$URL/startvideo?force=1&mode=$MODE&tag=$VIDEO_NAME" 
 sleep 2
 STATUS=$(curl -u $LOGIN:$PASSWORD "$URL/videostatus" | jq --raw-output ".fname") && bot_message "$STATUS запись"
-
+sleep 5
 ###################################
