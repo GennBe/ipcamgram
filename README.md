@@ -3,7 +3,7 @@ Ip webcam video auto upload to Telegram and notifications in Telegram bot. Cloud
 
 ## Installing
 - Install app [IP Webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) [Termux](https://f-droid.org/packages/com.termux/) [Termux:API](https://f-droid.org/packages/com.termux.api/) [Termux:Boot](https://f-droid.org/packages/com.termux.boot/)
-- Go to Android settings and turn off battery optimizations for Termux and `Termux:Boot` applications.
+- Go to Android settings and turn off battery optimizations for `Termux` and `Termux:Boot` applications.
 - Start the `Termux:Boot` app once by clicking on its launcher icon. This allows the app to be run at boot.
 - Start the `Termux` and run the command:
 ``` bash
